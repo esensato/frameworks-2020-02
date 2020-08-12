@@ -1,0 +1,40 @@
+<html>
+<body>
+
+<button onclick="contadorSincrono()">Sincrono</button>
+<button onclick="requestAssincrono()">Assincrono</button>
+</body>
+
+<script>
+
+// conta de forma sincrona entre 0 e 5000
+const contadorSincrono = () => {
+    for (let v = 0; v <= 10000; v++) {
+        console.log(v)
+    }
+    document.body.innerHTML = 'FIM'
+}
+
+const requestPromise = () => new Promise((resolve, reject) => {
+
+    let msg = "INICIO"
+
+    setTimeout(() => {
+        alert('FIM')
+        msg = 'FIM'
+        resolve(msg)
+    }, 5000)
+    
+    document.body.innerHTML = msg
+
+})
+
+const requestAssincrono = () => {
+    requestPromise().then((resposta) => {
+            document.body.innerHTML = resposta
+    })
+}
+
+</script>
+
+</html>

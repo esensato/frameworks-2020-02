@@ -1,0 +1,79 @@
+<html>
+<body>
+
+</body>
+
+<script>
+    // constantes nao podem ter valor alterado apos atribuicao inicial
+    const nome = 'Joao'
+    // nome = 'Pedro' -> ERRO!
+
+    var mensagem = 'Boa noite'
+    // substitui pelo conteudo das variaveis
+    mensagem = `${nome} ${mensagem}`
+
+    // let decalra variaveis com escopo dentro do bloco da declaracao
+    {
+        let mensagem = 'Bom dia'
+    }
+    
+    function negrito (val) {
+        return `<b>${val}</b>`
+    }
+
+    const italico = function(val) {
+        return `<i>${val}</i>`
+    }
+
+    // arrow function
+    const sublinhado = val => `<u>${val}</u>`
+
+    // reconstrução agregando as funcoes italico e sublinhado
+    const formatos = {italico, sublinhado}
+    console.log(formatos.italico('Teste'))
+    console.log(formatos.sublinhado('Teste'))
+
+    // define uma constante como referencia a uma função
+    // recebe como parametros uma função e o valor a ser processado
+    const exibir = function(fun = negrito, val = 'Nenhum') {
+
+        // define o conteudo do corpo da pagina com o texto Olá!
+        // aciona a função passada como parametro (negrito ou italico)
+        document.body.innerHTML = fun(val)
+    }
+
+    // aciona a função exibir
+    exibir(sublinhado, mensagem)
+    // assume o default (negrito e Nenhum)
+    //exibir()
+
+    console.log('Ola')
+
+    var aluno = {id: "Joao", nota: 10}
+
+    // desconstroi o objeto extraindo uma parte dele (no caso o atributo id) 
+    const { id } = aluno
+    //document.body.innerHTML = aluno
+    document.body.innerHTML = id
+
+    const frutasVermelhas = ['Morango', 'Cereja']
+    const saladaFrutas = [...frutasVermelhas, 'Kiwi'] // ['Morango', 'Cereja', 'Kiwi'] por conta do pread (...)
+
+    // duplicando arrays com o spread
+    const sorvete = [...saladaFrutas]
+
+    sorvete[0] = 'Manga'
+
+    document.body.innerHTML = `${saladaFrutas[0]} - ${sorvete[0]}`
+
+    const primeiraIgualUltima = palavra => {
+        let letras = [...palavra] // decompor a String em um array de caracteres
+        return letras[0] == letras[letras.length - 1] // compara se a primeira letra é igual a segunda
+    }
+
+    console.log(primeiraIgualUltima("AMEIXA"))
+    console.log(primeiraIgualUltima("BANANA"))
+
+</script>
+
+</html>
