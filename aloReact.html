@@ -14,6 +14,15 @@
 <script src="https://unpkg.com/react@16.8.6/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js"></script>
 
+
+<style>
+.estilo {
+background-color: green;
+color: white;
+border: 2px solid black;
+}
+</style>
+
 <script>
 
 const props = {id: 'meudiv', style: {border: 'solid 1px'}}
@@ -22,6 +31,18 @@ const h1 = React.createElement('h1', props, 'Oi')
 
 ReactDOM.render(h1, document.getElementById('root'))
 
+//const divs = React.createElement('div', {id:'div1'}, React.createElement('div', {id:'div2'}, 'Div2'),
+//             React.createElement('div', {id:'div3'}, React.createElement('div', {id:'div4'}, 'Div4')))
+
+const divs = React.createElement('div', {id:'div1'}, 'Div1', React.createElement('div', {id:'div2'}, 'Div2'),
+             React.createElement('div', {id:'div3'}, 'Div3'), React.createElement('div', {id:'div4'}, 'Div4'))
+
+
+ReactDOM.render(divs, document.getElementById('root'))
+
+const criaFrutas = (props) => React.createElement('h1', {className: props.estilo}, props.frutas.map((item, idx) => `${item} - ${idx} `))
+
+ReactDOM.render(React.createElement(criaFrutas, {frutas: ['Melao', 'Maca', 'Melancia'], estilo: 'estilo'}, null), document.getElementById('root'))
 
 </script>
 
