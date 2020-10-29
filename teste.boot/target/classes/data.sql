@@ -1,0 +1,7 @@
+DROP TABLE IF EXISTS tab_aluno;
+ 
+CREATE TABLE tab_aluno (
+  id_aluno INT AUTO_INCREMENT  PRIMARY KEY,
+  nome VARCHAR(30) NOT NULL,
+  nota DECIMAL NOT NULL
+);
