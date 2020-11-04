@@ -18,6 +18,10 @@ public class AlunoBean {
 	
 	private float nota;
 
+	public AlunoBean() {
+		super();
+	}
+	
 	public AlunoBean(String nome, float nota) {
 		super();
 		this.nome = nome;
